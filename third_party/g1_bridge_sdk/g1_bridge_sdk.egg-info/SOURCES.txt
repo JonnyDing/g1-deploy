@@ -1,0 +1,6 @@
+pyproject.toml
+setup.py
+g1_bridge_sdk.egg-info/PKG-INFO
+g1_bridge_sdk.egg-info/SOURCES.txt
+g1_bridge_sdk.egg-info/dependency_links.txt
+g1_bridge_sdk.egg-info/top_level.txt
