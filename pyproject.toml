@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "g1-deploy"
+version = "0.1.0"
+description = "G1 sim2real deployment package — extracted from Teleopit"
+authors = [
+    {name = "G1 Deploy Team"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "mujoco",
+    "mink",
+    "qpsolvers[proxqp]",
+    "torch",
+    "scipy",
+    "numpy",
+    "hydra-core",
+    "omegaconf",
+    "h5py",
+    "onnxruntime",
+    "rich",
+    "loop-rate-limiters",
+    "imageio",
+    "huggingface_hub",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+sim2real = [
+    "opencv-python",
+    # Also requires g1_bridge_sdk (C++ DDS bridge):
+    #   bash scripts/setup/setup_g1_bridge.sh
+]
+pico4 = [
+    "pico-bridge[camera] @ https://github.com/BotRunner64/pico-bridge/releases/download/v0.2.0/pico_bridge-0.2.0-py3-none-any.whl",
+    "g1-deploy[sim2real]",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["teleopit*"]
