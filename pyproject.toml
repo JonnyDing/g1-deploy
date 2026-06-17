@@ -46,4 +46,4 @@ pico4 = [
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["teleopit*"]
+include = ["deploy*"]
