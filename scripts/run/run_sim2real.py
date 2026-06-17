@@ -5,8 +5,8 @@ from __future__ import annotations
 import hydra
 from omegaconf import DictConfig
 
-from teleopit.runtime.cli import validate_policy_path
-from teleopit.sim2real.controller import Sim2RealController
+from deploy.runtime.cli import validate_policy_path
+from deploy.sim2real.controller import Sim2RealController
 
 
 def _print_sim2real_controls(cfg: DictConfig) -> None:
@@ -23,7 +23,7 @@ def _print_sim2real_controls(cfg: DictConfig) -> None:
     print("  State flow: IDLE -> STANDING -> MOCAP -> STANDING, Any -> DAMPING.")
 
 
-@hydra.main(version_base=None, config_path="../../teleopit/configs", config_name="sim2real")
+@hydra.main(version_base=None, config_path="../../deploy/configs", config_name="sim2real")
 def main(cfg: DictConfig) -> None:
     validate_policy_path(cfg, "run_sim2real.py")
     controller = Sim2RealController(cfg)
